@@ -15,13 +15,15 @@
             return computer[computerSelection];
         }
 
-        let playerInput = prompt("rock, paper, or scissors?");
-        let playerSelection = playerInput.toLowerCase(); //turns any submissions into lowercase
+        //turns any submissions into lowercase
         let playerScore = 0;
         let computerScore = 0;
        
         //one round of playRound
         function playRound(){
+
+            let playerInput = prompt("rock, paper, or scissors?");
+            let playerSelection = playerInput.toLowerCase();
 
             let computerSelection = computerPlay();
            
@@ -56,11 +58,23 @@
 
         //a function that allows 5 rounds of rock, paper, scissors and counts score
         function fiveRounds(){
-            for (i=1; i<5; i++){
-                playRound();
-                console.log(computerScore, playerScore);
+            for (i=0; i<5; i++){
+                console.log(playRound());
             }
-        }
+            console.log(computerScore, playerScore);
+            if (playerScore > computerScore) {
+                alert("Player won! Congrats.");
+            }
+            else if (playerScore < computerScore){
+                alert("Computer won! You suck.");
+            }
+            else {
+                alert("Tie!");
+            }
+            }
+
+        
+        
         
     </script>
 </body>
