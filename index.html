@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <script>
+        
+        function computerPlay() {
+            const computer = ["rock", "paper", "scissors"];
+            let computerSelection = Math.floor(Math.random() * computer.length);
+            return computer[computerSelection];
+        }
+
+        let playerSelection = prompt("rock, paper, or scissors?");
+
+        function playRound(){
+
+            let computerSelection = computerPlay();
+            if (computerSelection === playerSelection)
+            console.log("tie!");
+            else if (computerSelection === "rock" && playerSelection === "paper")
+            console.log("you win! paper beats rock. ");
+            else if (computerSelection === "rock" && playerSelection === "scissors")
+            console.log("computer wins! rock beats scissors");
+
+            else if (computerSelection === "paper" && playerSelection === "rock")
+            console.log("computer wins! paper beats rock");
+            else if (computerSelection === "paper" && playerSelection === "scissors")
+            console.log("player wins! scissors beats paper");
+
+            else if (computerSelection === "scissors" && playerSelection === "paper")
+            console.log("computer wins! scissors beats paper");
+            else if (computerSelection === "scissors" && playerSelection === "rock")
+            console.log("computer wins! scissors beats rock");
+
+            else 
+            console.log("something went wrong");
+        }
+        
+
+    </script>
+</body>
+</html>
