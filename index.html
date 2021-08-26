@@ -8,40 +8,60 @@
 </head>
 <body>
     <script>
-        
+        // computer is given a random choice
         function computerPlay() {
             const computer = ["rock", "paper", "scissors"];
             let computerSelection = Math.floor(Math.random() * computer.length);
             return computer[computerSelection];
         }
 
-        let playerSelection = prompt("rock, paper, or scissors?");
-
+        let playerInput = prompt("rock, paper, or scissors?");
+        let playerSelection = playerInput.toLowerCase(); //turns any submissions into lowercase
+        let playerScore = 0;
+        let computerScore = 0;
+       
+        //one round of playRound
         function playRound(){
 
             let computerSelection = computerPlay();
-            if (computerSelection === playerSelection)
-            console.log("tie!");
-            else if (computerSelection === "rock" && playerSelection === "paper")
-            console.log("you win! paper beats rock. ");
-            else if (computerSelection === "rock" && playerSelection === "scissors")
-            console.log("computer wins! rock beats scissors");
+           
+            if (computerSelection === playerSelection){
+                return ("tie!");}
+            else if (computerSelection === "rock" && playerSelection === "paper"){
+                playerScore++;
+                return ("you win! paper beats rock. ");}
+            else if (computerSelection === "rock" && playerSelection === "scissors"){
+                computerScore++;
+                return ("computer wins! rock beats scissors");}
+            else if (computerSelection === "paper" && playerSelection === "rock"){
+            computerScore++;
+                return ("computer wins! paper beats rock");}
+            else if (computerSelection === "paper" && playerSelection === "scissors"){
+                playerScore++;
+                return ("player wins! scissors beats paper");}
 
-            else if (computerSelection === "paper" && playerSelection === "rock")
-            console.log("computer wins! paper beats rock");
-            else if (computerSelection === "paper" && playerSelection === "scissors")
-            console.log("player wins! scissors beats paper");
+            else if (computerSelection === "scissors" && playerSelection === "paper"){
+                computerScore++;
+                return ("computer wins! scissors beats paper");}
+            else if (computerSelection === "scissors" && playerSelection === "rock"){
+                playerScore++;
+                return ("player wins! rock beats scissors");}
 
-            else if (computerSelection === "scissors" && playerSelection === "paper")
-            console.log("computer wins! scissors beats paper");
-            else if (computerSelection === "scissors" && playerSelection === "rock")
-            console.log("computer wins! scissors beats rock");
+            else {
+                return ("something went wrong");}
+                
 
-            else 
-            console.log("something went wrong");
+        }
+
+
+        //a function that allows 5 rounds of rock, paper, scissors and counts score
+        function fiveRounds(){
+            for (i=1; i<5; i++){
+                playRound();
+                console.log(computerScore, playerScore);
+            }
         }
         
-
     </script>
 </body>
 </html>
